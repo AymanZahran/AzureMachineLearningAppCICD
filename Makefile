@@ -1,6 +1,15 @@
 setup:
 	python3 -m venv ~/.udacity-devops
 
+setup_azure:
+	bash run_azure.sh
+
+setup_docker:
+	bash run_docker.sh
+
+setup_kubernetes:
+	bash run_kubernetes.sh
+
 install:
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt
