@@ -1,4 +1,4 @@
-setup_azure:
+Automate:
 	chmod 777 run_azure.sh && bash run_azure.sh
 
 install:
