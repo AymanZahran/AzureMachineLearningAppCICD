@@ -7,23 +7,10 @@ trigger:
 - master
 
 variables:
-  # Azure Resource Manager connection created during pipeline creation
-  #azureServiceConnectionId: 'cdf8887f-6685-4974-b682-8d7437942822'
-
-  # Web app name
-  webAppName: 'flask-sklearn'
-
-  # Agent VM image name
-  vmImageName: 'ubuntu-latest'
-
-  # Environment name
-  environmentName: 'flask-sklearn'
+  - group: Variable_Group
 
   # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
-
-  # Python version: 3.7
-  pythonVersion: '3.7'
 
 stages:
 - stage: Build
