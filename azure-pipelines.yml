@@ -30,6 +30,7 @@ stages:
         source antenv/bin/activate
         make install
         make lint
+        make test
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
 
