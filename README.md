@@ -23,8 +23,19 @@ Output of a CI-CD Pipeline Stages and Jobs
 
 ## Steps 
 1. Clone your repo
+
 git clone https://github.com/AymanZahran/Azure_CI-CD_MachineLearningApp/
-2. Prepare your Environment Well
+
+2. Integerate Azure with Github
+
+https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml
+
+3. Create your Azure Service connections
+
+https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml
+
+
+4. Prepare your Environment Well
 
 Make sure to prepare your environment by modify the .env file. Unfortunately, I will not be able to upload that file in the Repo since it has my Credentials but instead I have uplaod the env.example file as a template. Feel free to modify it with your credentials as bellow:
 
@@ -41,8 +52,8 @@ Make sure to prepare your environment by modify the .env file. Unfortunately, I 
 - AGENT_VM_IMAGE_NAME="ubuntu-latest"
 - ENVIRONMENT_NAME="flask-sklearn"
 - PYTHON_VERSION="3.7"
-
-3. Automate
+ 
+5. Automate
 - Simply run the "make Automate" Command
 - What make Automate will do is gives execute permission to the run_azure.sh script and run it
 - run_azure.sh script will do the following:
@@ -64,9 +75,9 @@ az pipelines create --name $PIPELINE_NAME --description $PIPELINE_DESCRIPTION --
     
   This is an automated way to create your Azure Pipeline using Azure CLI
 
-4. Once the pipeline has been deployed, it is automated in and will listen for every commit from Github to re-build, re-test and re-deploy the code into your Azure Web Service
+6. Once the pipeline has been deployed, it is automated in and will listen for every commit from Github to re-build, re-test and re-deploy the code into your Azure Web Service
 
-5. Testing the Pipeline by making new commit
+7. Testing the Pipeline by making new commit
 
    You can test your pipeline by making new commits. for example, by adding more quality control to your code you can uncomment "#make lint" line. Will enable the trigger and by the next build; it will build the container, install the requirement and make linting testing and if it success it will deploy the code to the Web Service App. Otherwise the pipeline will not continue and the code will not deployed simply because the test failed.
 
