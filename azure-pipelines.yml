@@ -9,8 +9,8 @@ trigger:
 variables:
   - group: Variable_Group
 
-  # Project root folder. Point to the folder containing manage.py file.
-  projectRoot: $(System.DefaultWorkingDirectory)
+  - name: projectRoot
+    value: $(System.DefaultWorkingDirectory)
 
 stages:
 - stage: Build
