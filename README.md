@@ -14,10 +14,14 @@ Architectural Diagram
 
 
 Output of a CI-CD Pipeline Stages and Jobs
+
+
 <img width="683" alt="Screen Shot 2021-04-02 at 8 36 17 PM" src="https://user-images.githubusercontent.com/22683614/113443911-23afec80-93f3-11eb-9b9d-c91be969e90f.png">
 
 ## Steps 
-1. Prepare your Environment Well
+1. Clone your repo
+git clone https://github.com/AymanZahran/Azure_CI-CD_MachineLearningApp/
+2. Prepare your Environment Well
 - Make sure to prepare your environment by modify the .env file. Unfortunately, I will not be able to upload that file in the Repo since it has my Credentials but instead I have uplaod the env.example file as a template. Feel free to modify it with your credentials as bellow
 AZURE_SUBSCRIPTION_ID="Put your subscription ID here"
 AZURE_LOCATION="Put your Azure Location here"
@@ -35,7 +39,25 @@ AGENT_VM_IMAGE_NAME="ubuntu-latest"
 ENVIRONMENT_NAME="flask-sklearn"
 PYTHON_VERSION="3.7"
 
-2.
+3.make Automate
+- What make Automate will do is gives exeuctre permission to the run_azure.sh script and run it
+- run_azure.sh script will do the following:
+   1. Create Resource Group
+        az group create --resource-group $FLASK_RESOURCE_GROUP --location $AZURE_LOCATION --tags webserver-env="Production"
+
+   2. Create Service Plan and Web App
+      az webapp up -g $FLASK_RESOURCE_GROUP -n $FLASK_WEB_APP
+      That is a great way from azure to build an Azure Service Plan, Web App and deploy your code in one step
+
+   3. Create Variable Group
+      az pipelines variable-group create --name Variable_Group --authorize true --organization $ORGANIZATION_NAME --project $PROJECT_NAME --variables            azureServiceConnectionId=$AZURE_SERVICE_CONNECTION_ID webAppName=$FLASK_WEB_APP vmImageName=$AGENT_VM_IMAGE_NAME environmentName=$ENVIRONMENT_NAME  pythonVersion=$PYTHON_VERSION
+      In this step you will upload your Environment Variables on Microsoft Azure DevOps in a Variable Groups. Which is configured in the azure-pipelines.yml file to use this Variable Group.
+
+    4. Create Azure Pipeline
+az pipelines create --name $PIPELINE_NAME --description $PIPELINE_DESCRIPTION --organization $ORGANIZATION_NAME --project $PROJECT_NAME --repository $REPO_NAME --branch master --repository-type github --yml-path azure-pipelines.yml 
+      This is an automated way to create your Azure Pipeline using Azure CLI
+
+4. Once the pipeline has been deployed, it is automated in and will listen for every commit from Github to re-build, re-test and re-deploy the code into your Azure Web Service
 
 ## Logs
 Successful prediction from deployed flask app in Azure Cloud Shell.
@@ -72,6 +94,9 @@ https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp
 
 Check Udacity Flask Starter Code
 https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/tree/master/C2-AgileDevelopmentwithAzure/project/starter_files/flask-sklearn
+
+Create your Azure Service connections
+https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml
 
 
 
