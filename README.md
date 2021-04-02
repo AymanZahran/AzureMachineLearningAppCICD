@@ -1,6 +1,6 @@
 # Overview
 
-By this project, you will be able to provision Azure Machine Learning Web App and building your CI-CD pipeline which can build, test and deploy your code on your App Service with every commit
+By this project, you will be able to provision Azure Machine Learning Web App and building your CI-CD pipeline which can build, test and deploy your code on your App Service on Microsoft Azure with every commit
 
 ## Project Plan
 
@@ -11,7 +11,7 @@ Schedule Plan: https://1drv.ms/x/s!AieojtnBJDhtgo0KQYft8WfcndX6Rg?e=HNHRYo
 ## Instructions
 Architectural Diagram
 
-That is an overview of how DevOps Automation is works. It is a simple overview not a full, it could be enhanced with many advanced stuff. What we will focus here is CI-CD Pipeline on Microsoft Azure
+That is an overview of DevOps Automation works. It is a simple overview not a full, it could be enhanced with many advanced stuff. What we will focus here is CI-CD Pipeline on Microsoft Azure
 
 <img width="1362" alt="Screen Shot 2021-04-02 at 2 20 46 PM" src="https://user-images.githubusercontent.com/22683614/113415237-137e1a00-93bf-11eb-8a09-4e2f2dc395bf.png">
 
@@ -42,7 +42,8 @@ Make sure to prepare your environment by modify the .env file. Unfortunately, I 
 - ENVIRONMENT_NAME="flask-sklearn"
 - PYTHON_VERSION="3.7"
 
-3. make Automate
+3. Automate
+- Simply run the "make Automate" Command
 - What make Automate will do is gives execute permission to the run_azure.sh script and run it
 - run_azure.sh script will do the following:
    1. Create Resource Group
@@ -60,13 +61,14 @@ Make sure to prepare your environment by modify the .env file. Unfortunately, I 
 
     4. Create Azure Pipeline
 az pipelines create --name $PIPELINE_NAME --description $PIPELINE_DESCRIPTION --organization $ORGANIZATION_NAME --project $PROJECT_NAME --repository $REPO_NAME --branch master --repository-type github --yml-path azure-pipelines.yml 
-      
-      This is an automated way to create your Azure Pipeline using Azure CLI
+    
+  This is an automated way to create your Azure Pipeline using Azure CLI
 
 4. Once the pipeline has been deployed, it is automated in and will listen for every commit from Github to re-build, re-test and re-deploy the code into your Azure Web Service
 
 5. Testing the Pipeline by making new commit
-- You can test your pipeline by making new commits. for example, by adding more quality control to your code you can uncomment #make lint. Will enable the trigger and by the next build; it will build the container, install the requirement and make linting testing and if it success it will deploy the code to the Web Service App. Otherwise the pipeline will not continue and the code will not deployed simply because the test failed.
+
+   You can test your pipeline by making new commits. for example, by adding more quality control to your code you can uncomment "#make lint" line. Will enable the trigger and by the next build; it will build the container, install the requirement and make linting testing and if it success it will deploy the code to the Web Service App. Otherwise the pipeline will not continue and the code will not deployed simply because the test failed.
 
 ## Logs
 Successful prediction from deployed flask app in Azure Cloud Shell.
@@ -91,7 +93,7 @@ Output of streamed log files from deployed application
 ## Enhancements
 
 This project could be improved by:
-1. Using Terraform to build your infrastructure on azure instead of Azure CLI since Terraform is idempotent
+1. Using Terraform to build your infrastructure and your pipeline as well instead of Azure CLI since Terraform is idempotent
 2. Use more build jobs such as building Docker Images on Azure Container Registery (ACR), building Kubernetes namespaces and clusters 
 3. Deploying your code on your Kubernetes Cluster
 
@@ -118,9 +120,5 @@ https://devblogs.microsoft.com/devops/create-and-manage-azure-pipelines-from-the
 Creating Variables Groups using Azure CLI
 
 https://docs.microsoft.com/en-us/cli/azure/ext/azure-devops/pipelines/variable-group?view=azure-cli-latest#ext_azure_devops_az_pipelines_variable_group_create
-
-
-
-
 
 
