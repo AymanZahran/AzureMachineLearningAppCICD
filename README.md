@@ -22,39 +22,42 @@ Output of a CI-CD Pipeline Stages and Jobs
 1. Clone your repo
 git clone https://github.com/AymanZahran/Azure_CI-CD_MachineLearningApp/
 2. Prepare your Environment Well
-- Make sure to prepare your environment by modify the .env file. Unfortunately, I will not be able to upload that file in the Repo since it has my Credentials but instead I have uplaod the env.example file as a template. Feel free to modify it with your credentials as bellow
-AZURE_SUBSCRIPTION_ID="Put your subscription ID here"
-AZURE_LOCATION="Put your Azure Location here"
-AZURE_SERVICE_CONNECTION_ID="Put your Azure Service Connection here"
 
-FLASK_RESOURCE_GROUP="production-resources"
-FLASK_WEB_APP="flask-sklearn"
-PIPELINE_NAME="Azure_CI-CD_MachineLearningApp-Pipeline"
-PIPELINE_DESCRIPTION="Azure_CI-CD_MachineLearningApp-Pipeline"
-ORGANIZATION_NAME="https://dev.azure.com/put-your-organization-name-here"
-PROJECT_NAME="put your project name here"
-REPO_NAME="https://github.com/your-git-username/your-git-repo"
+Make sure to prepare your environment by modify the .env file. Unfortunately, I will not be able to upload that file in the Repo since it has my Credentials but instead I have uplaod the env.example file as a template. Feel free to modify it with your credentials as bellow:
 
-AGENT_VM_IMAGE_NAME="ubuntu-latest"
-ENVIRONMENT_NAME="flask-sklearn"
-PYTHON_VERSION="3.7"
+- AZURE_SUBSCRIPTION_ID="Put your subscription ID here"
+- AZURE_LOCATION="Put your Azure Location here"
+- AZURE_SERVICE_CONNECTION_ID="Put your Azure Service Connection here"
+- FLASK_RESOURCE_GROUP="production-resources"
+- FLASK_WEB_APP="flask-sklearn"
+- PIPELINE_NAME="Azure_CI-CD_MachineLearningApp-Pipeline"
+- PIPELINE_DESCRIPTION="Azure_CI-CD_MachineLearningApp-Pipeline"
+- ORGANIZATION_NAME="https://dev.azure.com/put-your-organization-name-here"
+- PROJECT_NAME="put your project name here"
+- REPO_NAME="https://github.com/your-git-username/your-git-repo"
+- AGENT_VM_IMAGE_NAME="ubuntu-latest"
+- ENVIRONMENT_NAME="flask-sklearn"
+- PYTHON_VERSION="3.7"
 
 3.make Automate
-- What make Automate will do is gives exeuctre permission to the run_azure.sh script and run it
+- What make Automate will do is gives execute permission to the run_azure.sh script and run it
 - run_azure.sh script will do the following:
    1. Create Resource Group
         az group create --resource-group $FLASK_RESOURCE_GROUP --location $AZURE_LOCATION --tags webserver-env="Production"
 
    2. Create Service Plan and Web App
       az webapp up -g $FLASK_RESOURCE_GROUP -n $FLASK_WEB_APP
+
       That is a great way from azure to build an Azure Service Plan, Web App and deploy your code in one step
 
    3. Create Variable Group
       az pipelines variable-group create --name Variable_Group --authorize true --organization $ORGANIZATION_NAME --project $PROJECT_NAME --variables            azureServiceConnectionId=$AZURE_SERVICE_CONNECTION_ID webAppName=$FLASK_WEB_APP vmImageName=$AGENT_VM_IMAGE_NAME environmentName=$ENVIRONMENT_NAME  pythonVersion=$PYTHON_VERSION
+      
       In this step you will upload your Environment Variables on Microsoft Azure DevOps in a Variable Groups. Which is configured in the azure-pipelines.yml file to use this Variable Group.
 
     4. Create Azure Pipeline
 az pipelines create --name $PIPELINE_NAME --description $PIPELINE_DESCRIPTION --organization $ORGANIZATION_NAME --project $PROJECT_NAME --repository $REPO_NAME --branch master --repository-type github --yml-path azure-pipelines.yml 
+      
       This is an automated way to create your Azure Pipeline using Azure CLI
 
 4. Once the pipeline has been deployed, it is automated in and will listen for every commit from Github to re-build, re-test and re-deploy the code into your Azure Web Service
@@ -62,10 +65,12 @@ az pipelines create --name $PIPELINE_NAME --description $PIPELINE_DESCRIPTION --
 ## Logs
 Successful prediction from deployed flask app in Azure Cloud Shell.
 
-
  ~/Azure_CI-CD_MachineLearningApp # ./make_predict_azure_app.sh 
+
 Port: 443
+
 {"prediction":[20.35373177134412]}
+
  ~/Azure_CI-CD_MachineLearningApp # 
 
 Output of streamed log files from deployed application
