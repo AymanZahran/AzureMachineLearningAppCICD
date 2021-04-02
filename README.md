@@ -10,6 +10,9 @@ Schedule Plan: https://1drv.ms/x/s!AieojtnBJDhtgo0KQYft8WfcndX6Rg?e=HNHRYo
 
 ## Instructions
 Architectural Diagram
+
+That is an overview of how DevOps Automation is works. It is a simple overview not a full, it could be enhanced with many advanced stuff. What we will focus here is CI-CD Pipeline on Microsoft Azure
+
 <img width="1362" alt="Screen Shot 2021-04-02 at 2 20 46 PM" src="https://user-images.githubusercontent.com/22683614/113415237-137e1a00-93bf-11eb-8a09-4e2f2dc395bf.png">
 
 
