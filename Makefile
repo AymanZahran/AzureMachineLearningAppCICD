@@ -1,3 +1,6 @@
+Preparing-Environment:
+	chmod +x setENV.sh && bash setENV.sh &&
+
 Automate:
 	chmod 777 run_azure.sh && bash run_azure.sh
 
