@@ -1,6 +1,6 @@
 # Overview
 
-By this project, you will be able to provision Azure Machine Learning Web App and building your CI-CD pipeline which can build, test and deploy your code on your App Service on Microsoft Azure with every commit
+By this project, you will be able to provision Azure Flask Machine Learning Web App and building your CI-CD pipeline which can build, test and deploy your code on your App Service on Microsoft Azure with every commit
 
 ## Project Plan
 
