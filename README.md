@@ -39,7 +39,7 @@ Make sure to prepare your environment by modify the .env file. Unfortunately, I 
 - ENVIRONMENT_NAME="flask-sklearn"
 - PYTHON_VERSION="3.7"
 
-3.make Automate
+3. make Automate
 - What make Automate will do is gives execute permission to the run_azure.sh script and run it
 - run_azure.sh script will do the following:
    1. Create Resource Group
@@ -61,6 +61,9 @@ az pipelines create --name $PIPELINE_NAME --description $PIPELINE_DESCRIPTION --
       This is an automated way to create your Azure Pipeline using Azure CLI
 
 4. Once the pipeline has been deployed, it is automated in and will listen for every commit from Github to re-build, re-test and re-deploy the code into your Azure Web Service
+
+5. Testing the Pipeline by making new commit
+- You can test your pipeline by making new commits. for example, by adding more quality control to your code you can uncomment #make lint. Will enable the trigger and by the next build; it will build the container, install the requirement and make linting testing and if it success it will deploy the code to the Web Service App. Otherwise the pipeline will not continue and the code will not deployed simply because the test failed.
 
 ## Logs
 Successful prediction from deployed flask app in Azure Cloud Shell.
