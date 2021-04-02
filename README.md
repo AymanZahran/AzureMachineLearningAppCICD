@@ -37,7 +37,7 @@ https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoint
 
 4. Prepare your Environment Well
 
-Make sure to prepare your environment by modify the .env file. Unfortunately, I will not be able to upload that file in the Repo since it has my Credentials but instead I have uplaod the env.example file as a template. Feel free to modify it with your credentials as bellow:
+Make sure to prepare your environment by modify the .env file. run the make Preparing-Environment command. Unfortunately, I will not be able to upload that file in the Repo since it has my Credentials but instead I have uplaod the env.example file as a template. Feel free to modify it with your credentials as bellow:
 
 - AZURE_SUBSCRIPTION_ID="Put your subscription ID here"
 - AZURE_LOCATION="Put your Azure Location here"
