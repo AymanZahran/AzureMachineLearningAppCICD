@@ -29,7 +29,7 @@ stages:
         python -m venv antenv
         source antenv/bin/activate
         make install
-        make lint
+        #make lint
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
 
