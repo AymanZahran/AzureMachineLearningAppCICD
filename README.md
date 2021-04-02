@@ -93,18 +93,29 @@ This project could be improved by:
 3. Deploying your code on your Kubernetes Cluster
 
 ## Demo 
-
-<TODO: Add link Screencast on YouTube>
+Youtube Link
 
 ## References
 Check Microsoft Documentation for using CI/CD to deploy a Python web app to Azure App Service on Linux
+
 https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops
 
 Check Udacity Flask Starter Code
+
 https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/tree/master/C2-AgileDevelopmentwithAzure/project/starter_files/flask-sklearn
 
 Create your Azure Service connections
+
 https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml
+
+Check George Article for Create and manage Azure Pipelines from the command line
+
+https://devblogs.microsoft.com/devops/create-and-manage-azure-pipelines-from-the-command-line/
+
+Creating Variables Groups using Azure CLI
+
+https://docs.microsoft.com/en-us/cli/azure/ext/azure-devops/pipelines/variable-group?view=azure-cli-latest#ext_azure_devops_az_pipelines_variable_group_create
+
 
 
 
