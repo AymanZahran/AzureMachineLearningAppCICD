@@ -29,8 +29,11 @@ stages:
         python -m venv antenv
         source antenv/bin/activate
         make install
-        make lint
-        make test
+        pylint --disable=R,C,W1203 app.py
+        python -m pytest -vv --cov=myrepolib tests/*.py
+        python -m pytest --nbval notebook.ipynb
+	#make lint
+        #make test
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
 
