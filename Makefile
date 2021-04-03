@@ -11,4 +11,8 @@ install:
 lint:
 	pylint --disable=R,C,W1203,W0702 app.py
 
-all: install lint 
+test:
+	#python -m pytest -vv --cov=myrepolib tests/*.py
+	#python -m pytest --nbval notebook.ipynb
+
+all: install lint test
