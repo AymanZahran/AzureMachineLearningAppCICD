@@ -111,6 +111,10 @@ Output of streamed log files from deployed application
 <img width="1309" alt="Screen Shot 2021-04-02 at 8 40 18 PM" src="https://user-images.githubusercontent.com/22683614/113444178-a9339c80-93f3-11eb-96b0-dbbfd96fc52d.png">
 
 
+## Status Badge
+
+[![.github/workflows/python-publish.yml](https://github.com/AymanZahran/Azure_CI-CD_MachineLearningApp/actions/workflows/python-publish.yml/badge.svg)](https://github.com/AymanZahran/Azure_CI-CD_MachineLearningApp/actions/workflows/python-publish.yml)
+
 ## Enhancements
 
 This project could be improved by:
