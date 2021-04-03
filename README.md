@@ -80,6 +80,16 @@ az pipelines create --name $PIPELINE_NAME --description $PIPELINE_DESCRIPTION --
 7. Testing the Pipeline by making new commit
 
    You can test your pipeline by making new commits. for example, by adding more quality control to your code you can uncomment "#make lint" line. Will enable the trigger and by the next build; it will build the container, install the requirement and make linting testing and if it success it will deploy the code to the Web Service App. Otherwise the pipeline will not continue and the code will not deployed simply because the test failed.
+   
+   Here is a screenshot form pylint and pytest
+   
+   <img width="1676" alt="Screen Shot 2021-03-28 at 7 21 34 PM" src="https://user-images.githubusercontent.com/22683614/113473143-fcdfcd80-9467-11eb-8105-e1c9686e6ea6.png">
+
+8. Alternative way of building is Continuous Integeration is using Github Actions
+
+<img width="1634" alt="Screen Shot 2021-03-28 at 7 39 49 PM" src="https://user-images.githubusercontent.com/22683614/113473176-39132e00-9468-11eb-8916-3158da245f9b.png">
+
+
 
 ## Logs
 Successful prediction from deployed flask app in Azure Cloud Shell.
