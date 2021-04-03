@@ -94,13 +94,8 @@ az pipelines create --name $PIPELINE_NAME --description $PIPELINE_DESCRIPTION --
 ## Logs
 Successful prediction from deployed flask app in Azure Cloud Shell.
 
- ~/Azure_CI-CD_MachineLearningApp # ./make_predict_azure_app.sh 
+<img width="1013" alt="Screen Shot 2021-04-03 at 10 50 15 AM" src="https://user-images.githubusercontent.com/22683614/113473555-77115180-946a-11eb-9bb4-64dfef5eeeb8.png">
 
-Port: 443
-
-{"prediction":[20.35373177134412]}
-
- ~/Azure_CI-CD_MachineLearningApp # 
 
 Output of streamed log files from deployed application
 1. Deploying the Code on the App Service
