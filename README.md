@@ -124,6 +124,10 @@ Create your Azure Service connections
 
 https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml
 
+Integerate Azure Pipelines with Github
+
+https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml
+
 Check George Article for Create and manage Azure Pipelines from the command line
 
 https://devblogs.microsoft.com/devops/create-and-manage-azure-pipelines-from-the-command-line/
