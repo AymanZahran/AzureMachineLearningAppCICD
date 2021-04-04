@@ -93,7 +93,7 @@ az pipelines create --name $PIPELINE_NAME --description $PIPELINE_DESCRIPTION --
 
 locust -f locustfile.py
 
-Screen Shot 2021-04-04 at 9.20.03 PM
+
 <img width="1634" alt="Screen Shot 2021-03-28 at 7 39 49 PM" src="https://user-images.githubusercontent.com/22683614/113473176-39132e00-9468-11eb-8916-3158da245f9b.png">
 
 <img width="1665" alt="Screen Shot 2021-04-04 at 9 20 10 PM" src="https://user-images.githubusercontent.com/22683614/113519379-1417db80-958c-11eb-9e79-94f78dd90f33.png">
